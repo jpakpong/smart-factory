@@ -95,7 +95,7 @@ export default function App() {
       )}
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col justify-center">
+      <main className={`flex-1 flex flex-col ${currentScreen === 'playing' ? 'justify-start' : 'justify-center'}`}>
         {currentScreen === 'welcome' && (
           <WelcomeScreen
             onStartGame={handleStartGame}

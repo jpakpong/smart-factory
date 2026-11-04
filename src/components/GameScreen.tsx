@@ -233,14 +233,14 @@ export const GameScreen: React.FC<GameScreenProps> = ({
   const pendingChoice = currentQuestion.choices.find(c => c.code === pendingChoiceCode);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-5 space-y-4">
-      {/* 6.1 Top Dashboard (Compact for iPad / Mobile Landscape) */}
-      <div className="bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-stone-200">
-        <div className="flex flex-wrap items-center justify-between gap-2.5 text-xs sm:text-sm font-semibold text-stone-700">
+    <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-6 pt-1 sm:pt-2 pb-2 sm:pb-3 space-y-2 sm:space-y-2.5">
+      {/* 6.1 Top Dashboard (Snug against Banner, compact for iPad / Mobile Landscape) */}
+      <div className="bg-white rounded-xl sm:rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5 shadow-2xs border border-stone-200">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-semibold text-stone-700">
           {/* Player Name */}
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-rose-50 text-[#800020] flex items-center justify-center border border-rose-200">
-              <User className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-rose-50 text-[#800020] flex items-center justify-center border border-rose-200 shrink-0">
+              <User className="w-3.5 h-3.5" />
             </div>
             <span>
               ผู้เล่น: <strong className="text-stone-900">{playerName}</strong>
@@ -248,7 +248,7 @@ export const GameScreen: React.FC<GameScreenProps> = ({
           </div>
 
           {/* Question Index */}
-          <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 border border-stone-200">
+          <div className="flex items-center gap-1 px-2.5 py-0.5 sm:py-1 rounded-lg bg-stone-100 border border-stone-200">
             <HelpCircle className="w-3.5 h-3.5 text-[#800020]" />
             <span>
               คำถาม <strong className="text-[#800020] text-sm">{currentIndex + 1}</strong> / {questions.length}
@@ -256,7 +256,7 @@ export const GameScreen: React.FC<GameScreenProps> = ({
           </div>
 
           {/* Current Score */}
-          <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <div className="flex items-center gap-1 px-2.5 py-0.5 sm:py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
             <Trophy className="w-3.5 h-3.5 text-emerald-600" />
             <span>
               คะแนน: <strong className="text-emerald-700 text-sm">{score}</strong> / {questions.length}
@@ -266,7 +266,7 @@ export const GameScreen: React.FC<GameScreenProps> = ({
           {/* Countdown Timer with Sound Indicator */}
           <div className="flex items-center gap-1.5">
             <div
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-xl border font-bold transition-all ${
+              className={`flex items-center gap-1.5 px-2.5 py-0.5 sm:py-1 rounded-xl border font-bold transition-all ${
                 isLowTime
                   ? 'bg-red-50 text-red-600 border-red-300 animate-pulse-ring'
                   : 'bg-stone-50 text-stone-800 border-stone-200'
@@ -296,68 +296,68 @@ export const GameScreen: React.FC<GameScreenProps> = ({
         </div>
 
         {/* Overall Progress Bar */}
-        <div className="w-full bg-stone-100 rounded-full h-1.5 sm:h-2 mt-3 overflow-hidden">
+        <div className="w-full bg-stone-100 rounded-full h-1 sm:h-1.5 mt-1.5 sm:mt-2 overflow-hidden">
           <div
-            className="bg-gradient-to-r from-[#800020] to-[#A52A4A] h-1.5 sm:h-2 rounded-full transition-all duration-300"
+            className="bg-gradient-to-r from-[#800020] to-[#A52A4A] h-1 sm:h-1.5 rounded-full transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
           />
         </div>
       </div>
 
       {/* 6.2 Main Game Area: Responsive Two-Column Layout for Desktop / iPad / Landscape */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-2.5 sm:gap-3 md:gap-3.5 items-stretch">
         {/* Left Column (5 cols): Equipment Question Card */}
-        <div className="md:col-span-5 bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 flex flex-col justify-between h-full space-y-3">
-          <div className="flex items-center justify-between border-b border-stone-100 pb-2.5 shrink-0">
-            <div className="text-xs font-semibold text-[#800020] uppercase tracking-wider">
+        <div className="md:col-span-5 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-3.5 md:p-4 shadow-2xs border border-stone-200 flex flex-col justify-between h-full space-y-2 sm:space-y-2.5">
+          <div className="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:pb-2 shrink-0">
+            <div className="text-[11px] sm:text-xs font-semibold text-[#800020] uppercase tracking-wider">
               อุปกรณ์อุตสาหกรรม #{currentQuestion.equipment.id}
             </div>
-            <span className="text-xs px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 font-medium truncate max-w-[150px]">
+            <span className="text-[11px] sm:text-xs px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 font-medium truncate max-w-[150px]">
               {currentQuestion.equipment.category}
             </span>
           </div>
 
           {/* Realistic 3D Visual Render */}
-          <div className="flex-1 min-h-[190px] sm:min-h-[220px] flex items-center justify-center">
+          <div className="flex-1 min-h-[140px] sm:min-h-[165px] md:min-h-[185px] flex items-center justify-center">
             <EquipmentVisual 
               id={currentQuestion.equipment.id} 
               name={currentQuestion.equipment.equipmentName} 
-              className="w-full h-full min-h-[190px] sm:min-h-[220px]"
+              className="w-full h-full min-h-[140px] sm:min-h-[165px] md:min-h-[185px]"
             />
           </div>
 
           {/* Equipment Label */}
-          <div className="pt-1 shrink-0">
-            <h2 className="text-lg sm:text-xl font-bold text-stone-900 tracking-tight leading-snug">
+          <div className="pt-0.5 shrink-0">
+            <h2 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight leading-snug">
               {currentQuestion.equipment.equipmentName}
             </h2>
-            <p className="text-xs text-stone-500 mt-0.5">
+            <p className="text-[11px] sm:text-xs text-stone-500 mt-0.5">
               หมวด: <span className="font-semibold text-stone-700">{currentQuestion.equipment.category}</span>
             </p>
           </div>
 
           {/* Requirement 5: ตัดคำว่า โปรดพิจารณา ให้เขียนว่า เลือก .... */}
-          <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-600 leading-relaxed shrink-0">
+          <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-stone-50 border border-stone-200 text-[11px] sm:text-xs text-stone-600 leading-snug shrink-0">
             <span className="font-semibold text-stone-800">คำถาม:</span> เลือกการประยุกต์ใช้งาน (Industrial Application) ที่สอดคล้องกับอุปกรณ์ชิ้นนี้อย่างถูกต้องที่สุด
           </div>
         </div>
 
         {/* Right Column (7 cols): Four Answer Cards (2x2 Grid) matching height */}
-        <div className="md:col-span-7 flex flex-col justify-between h-full space-y-3">
+        <div className="md:col-span-7 flex flex-col justify-between h-full space-y-2 sm:space-y-2.5">
           {/* 4 Application Cards in 2x2 Grid - equal height */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-2.5 sm:gap-3 flex-1 h-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-2 sm:gap-2.5 flex-1 h-full">
             {currentQuestion.choices.map((choice) => {
               const isEvaluated = stepState === 'evaluated';
               const isThisCorrect = choice.isCorrect;
               const isUserChoice = selectedChoiceCode === choice.code;
 
-              let cardStyle = 'border-stone-200 hover:border-[#800020] hover:shadow-md bg-white cursor-pointer';
+              let cardStyle = 'border-stone-200 hover:border-[#800020] hover:shadow-sm bg-white cursor-pointer';
 
               if (isEvaluated) {
                 if (isThisCorrect) {
-                  cardStyle = 'border-2 border-[#15803D] bg-emerald-50/90 ring-2 ring-emerald-400 shadow-md';
+                  cardStyle = 'border-2 border-[#15803D] bg-emerald-50/90 ring-1 ring-emerald-400 shadow-sm';
                 } else if (isUserChoice && !isThisCorrect) {
-                  cardStyle = 'border-2 border-[#DC2626] bg-red-50/90 ring-2 ring-red-400 shadow-md';
+                  cardStyle = 'border-2 border-[#DC2626] bg-red-50/90 ring-1 ring-red-400 shadow-sm';
                 } else {
                   cardStyle = 'border-stone-200 opacity-50 bg-stone-50 cursor-not-allowed';
                 }
@@ -371,34 +371,34 @@ export const GameScreen: React.FC<GameScreenProps> = ({
                       handleSelectCard(choice.code);
                     }
                   }}
-                  className={`relative p-3 sm:p-3.5 rounded-xl border transition-all flex flex-col justify-between h-full select-none ${cardStyle}`}
+                  className={`relative p-2.5 sm:p-3 rounded-xl border transition-all flex flex-col justify-between h-full select-none ${cardStyle}`}
                 >
                   {/* Top: Short Title ONLY (No A,B... badge) */}
-                  <div className="shrink-0 mb-1">
+                  <div className="shrink-0 mb-0.5 sm:mb-1">
                     <h3 className="text-xs sm:text-sm font-bold text-stone-900 line-clamp-1">
                       {choice.title}
                     </h3>
                   </div>
 
                   {/* Visual Application Diagram */}
-                  <div className="flex-1 min-h-[60px] sm:min-h-[75px] my-1 flex items-center justify-center">
-                    <ApplicationVisual code={choice.code} title={choice.title} className="w-full h-full max-h-[115px]" />
+                  <div className="flex-1 min-h-[48px] sm:min-h-[58px] md:min-h-[68px] my-0.5 sm:my-1 flex items-center justify-center">
+                    <ApplicationVisual code={choice.code} title={choice.title} className="w-full h-full max-h-[95px] sm:max-h-[105px]" />
                   </div>
 
                   {/* Thai Application Description */}
-                  <div className="shrink-0 mt-1 text-xs text-stone-600 leading-relaxed min-h-[2.75rem] line-clamp-2 sm:line-clamp-3">
+                  <div className="shrink-0 mt-0.5 sm:mt-1 text-[11px] sm:text-xs text-stone-600 leading-snug min-h-[2.35rem] line-clamp-2 sm:line-clamp-3">
                     {choice.description}
                   </div>
 
                   {/* Status Indicator during brief auto-advance feedback */}
                   {isEvaluated && isThisCorrect && (
-                    <div className="mt-1.5 pt-1 border-t border-emerald-200 flex items-center gap-1.5 text-xs font-bold text-[#15803D] shrink-0">
+                    <div className="mt-1 pt-0.5 border-t border-emerald-200 flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[#15803D] shrink-0">
                       <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                       <span>คำตอบที่ถูกต้อง</span>
                     </div>
                   )}
                   {isEvaluated && isUserChoice && !isThisCorrect && (
-                    <div className="mt-1.5 pt-1 border-t border-red-200 flex items-center gap-1.5 text-xs font-bold text-[#DC2626] shrink-0">
+                    <div className="mt-1 pt-0.5 border-t border-red-200 flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[#DC2626] shrink-0">
                       <XCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>คำตอบที่คุณเลือก</span>
                     </div>
@@ -410,14 +410,14 @@ export const GameScreen: React.FC<GameScreenProps> = ({
 
           {/* Quick Auto-Advance Status Banner during Evaluation */}
           {stepState === 'evaluated' && evaluationResult && (
-            <div className={`p-3 rounded-xl border shadow-sm flex items-center justify-between gap-3 shrink-0 animate-in fade-in ${
+            <div className={`p-2 sm:p-2.5 rounded-lg sm:rounded-xl border shadow-xs flex items-center justify-between gap-2 shrink-0 animate-in fade-in ${
               evaluationResult.isCorrect 
                 ? 'bg-emerald-50 border-emerald-300 text-emerald-900' 
                 : evaluationResult.isTimeout
                 ? 'bg-amber-50 border-amber-300 text-amber-900'
                 : 'bg-red-50 border-red-300 text-red-900'
             }`}>
-              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold">
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold">
                 {evaluationResult.isCorrect ? (
                   <>
                     <CheckCircle2 className="w-4 h-4 text-[#15803D] shrink-0" />

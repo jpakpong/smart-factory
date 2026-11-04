@@ -8,10 +8,10 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onRestartClick, showRestartButton = false }) => {
   return (
-    <header className="w-full bg-[#4A0018] text-white border-b border-[#800020] shadow-md">
+    <header className="w-full bg-[#4A0018] text-white border-b border-[#800020] shadow-xs">
       {/* Clean Single-Row Brand Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <div className="w-9 h-9 rounded-lg bg-[#800020] border border-white/20 flex items-center justify-center text-white shadow-inner">
             <Cpu className="w-5 h-5 text-amber-300" />
           </div>
