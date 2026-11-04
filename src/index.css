@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-burgundy-primary: #800020;
+    --color-burgundy-dark: #4A0018;
+    --color-burgundy-light: #A52A4A;
+    --color-bg-base: #F5F3F2;
+    --color-card-bg: #FFFFFF;
+    --color-text-main: #252525;
+    --color-text-sub: #6B7280;
+    --color-correct: #15803D;
+    --color-incorrect: #DC2626;
+  }
+
+  body {
+    font-family: 'Prompt', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #F5F3F2;
+    color: #252525;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

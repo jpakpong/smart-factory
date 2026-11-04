@@ -1,0 +1,6 @@
+{
+  "name": "Smart Factory Engineering Challenge",
+  "description": "เกมท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม - ภาควิชาวิศวกรรมเครื่องกล คณะวิศวกรรมศาสตร์ มหาวิทยาลัยบูรพา",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
