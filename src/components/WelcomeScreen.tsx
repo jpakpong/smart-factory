@@ -9,7 +9,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import { SavedGameResult } from '../types/game';
-import heroImage from '../assets/images/hero_smart_factory_3d_1793791966792.jpg';
+import heroImage from '../assets/images/smart_factory_cartoon_1793885158650.jpg';
 
 interface WelcomeScreenProps {
   onStartGame: (playerName: string) => void;
@@ -36,39 +36,38 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
 
   return (
     <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
-      {/* 5.2 Game Title & 3D Factory Illustration Banner */}
+      {/* 5.2 Game Title & Cartoon Line-Art Smart Factory Banner */}
       <section className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden mb-6">
-        <div className="relative aspect-21/8 sm:aspect-16/6 w-full overflow-hidden bg-slate-950">
+        <div className="relative aspect-16/9 sm:aspect-21/9 md:aspect-24/10 w-full overflow-hidden bg-slate-900 min-h-[220px] sm:min-h-[250px]">
           <img
             src={heroImage}
-            alt="Smart Factory 3D Render"
+            alt="Smart Factory Cartoon Line-Art Illustration"
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-102"
           />
-          {/* Burgundy Gradient Scrim */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#4A0018]/95 via-[#4A0018]/60 to-black/40 flex flex-col justify-between p-4 sm:p-6 md:p-8 text-white">
+          {/* Burgundy Gradient Scrim (subtle so cartoon factory line-art remains clearly recognizable) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#4A0018]/95 via-[#4A0018]/45 to-stone-900/40 flex flex-col justify-between p-3.5 sm:p-5 md:p-6 text-white">
             {/* Top Bar inside Banner: Left & Right */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 text-xs sm:text-sm font-medium text-rose-100/95 pb-2 border-b border-white/20">
-              <span className="font-semibold text-white drop-shadow-sm">
+              <span className="font-semibold text-white drop-shadow-md">
                 ภาควิชาวิศวกรรมเครื่องกล คณะวิศวกรรมศาสตร์ มหาวิทยาลัยบูรพา
               </span>
-              <span className="text-amber-300 font-bold drop-shadow-sm">
+              <span className="text-amber-300 font-bold drop-shadow-md">
                 หลักสูตรวิศวกรรมหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
               </span>
             </div>
 
             {/* Title & Subtitle inside Banner */}
             <div className="mt-3 sm:mt-auto">
-              <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-md">
+              <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg">
                 Smart Factory Engineering Challenge
               </h1>
-              <p className="text-xs sm:text-base text-rose-100 font-medium mt-0.5 max-w-2xl">
-                เกมท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
+              <p className="text-xs sm:text-base text-rose-100 font-semibold mt-0.5 max-w-2xl drop-shadow-md">
+                เกมส์ท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
               </p>
             </div>
           </div>
         </div>
-
       </section>
 
       {/* Main Grid: How-to-play & Player Start Form */}

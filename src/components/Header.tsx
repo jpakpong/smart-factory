@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ onRestartClick, showRestartButto
               Smart Factory Engineering Challenge
             </h1>
             <p className="text-xs text-rose-200/90 font-medium">
-              เกมท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
+              เกมส์ท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
             </p>
           </div>
         </div>
