@@ -77,7 +77,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
           <div className="flex items-center justify-between border-b border-stone-100 pb-3">
             <div>
               <h3 className="text-base sm:text-lg font-bold text-[#4A0018]">
-                วิธีเล่นเกม (How to Play)
+                วิธีเล่นเกม
               </h3>
               <p className="text-xs text-stone-500 mt-0.5">
                 เลือกการใช้งานของอุปกรณ์ด้าน Automation
@@ -109,7 +109,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
                 2
               </div>
               <h4 className="text-xs sm:text-sm font-semibold text-stone-800 leading-snug">
-                ดูอุปกรณ์และเลือกคำตอบที่ตรงกับการใช้งานจาก 4 ตัวเลือก
+                เลือกคำตอบที่ตรงกับการใช้งานของอุปกรณ์
               </h4>
             </div>
 
@@ -118,7 +118,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
                 3
               </div>
               <h4 className="text-xs sm:text-sm font-semibold text-stone-800 leading-snug">
-                ยืนยันคำตอบก่อนหมดเวลา 45 วินาที
+                คำถามแต่ละข้อมีเวลา 45 วินาที
               </h4>
             </div>
 
@@ -127,7 +127,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
                 4
               </div>
               <h4 className="text-xs sm:text-sm font-semibold text-stone-800 leading-snug">
-                สะสมคะแนนให้ได้มากที่สุดจากทั้งหมด 15 คำถาม
+                สะสมคะแนนจากคำถาม 15 ข้อ
               </h4>
             </div>
           </div>
