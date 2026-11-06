@@ -59,11 +59,11 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
 
             {/* Title & Subtitle inside Banner */}
             <div className="mt-3 sm:mt-auto">
-              <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg">
-                Smart Factory Engineering Challenge
+              <h1 className="text-base sm:text-xl md:text-2xl font-extrabold tracking-tight text-white drop-shadow-lg">
+                Smart Factory Challenge
               </h1>
-              <p className="text-xs sm:text-base text-rose-100 font-semibold mt-0.5 max-w-2xl drop-shadow-md">
-                เกมส์ท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
+              <p className="text-xs sm:text-sm md:text-base text-rose-100 font-semibold mt-0.5 max-w-2xl drop-shadow-md">
+                เกมท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
               </p>
             </div>
           </div>

@@ -17,10 +17,10 @@ export const Header: React.FC<HeaderProps> = ({ onRestartClick, showRestartButto
           </div>
           <div>
             <h1 className="text-base sm:text-lg font-bold tracking-tight text-white leading-tight">
-              Smart Factory Engineering Challenge
+              Smart Factory Challenge
             </h1>
             <p className="text-xs text-rose-200/90 font-medium">
-              เกมส์ท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
+              เกมท้าทายความรู้ด้านหุ่นยนต์และระบบอัตโนมัติอุตสาหกรรม
             </p>
           </div>
         </div>
