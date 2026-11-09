@@ -80,7 +80,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
                 วิธีเล่นเกม
               </h3>
               <p className="text-xs text-stone-500 mt-0.5">
-                เลือกการใช้งานของอุปกรณ์ด้าน Automation
+                เลือกการใช้งานของอุปกรณ์ด้านระบบอัตโนมัติอุตสาหกรรม
               </p>
             </div>
             <button
@@ -136,7 +136,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
           <div className="p-3.5 rounded-xl bg-rose-50/80 border border-rose-200/70 flex items-center gap-2.5">
             <CheckCircle2 className="w-4 h-4 text-[#800020] shrink-0" />
             <p className="text-xs sm:text-sm font-medium text-[#4A0018]">
-              เกณฑ์คะแนน: ตอบถูกข้อละ 1 คะแนน ตอบผิด ได้ 0 คะแนน หากหมดเวลาจะถือว่าตอบผิด
+              ตอบถูกได้ข้อละ 1 คะแนน ตอบผิดหรือหมดเวลาได้ 0 คะแนน
             </p>
           </div>
 
@@ -175,9 +175,6 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStartGame, lates
               <h3 className="text-base sm:text-lg font-bold text-[#4A0018]">
                 เข้าสู่เกมท้าทาย
               </h3>
-              <p className="text-xs text-stone-500 mt-0.5">
-                กรอกชื่อเพื่อเริ่มต้นเซสชันใหม่ 15 ข้อ
-              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
