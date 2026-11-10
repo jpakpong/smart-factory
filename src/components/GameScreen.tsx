@@ -307,22 +307,22 @@ export const GameScreen: React.FC<GameScreenProps> = ({
       {/* 6.2 Main Game Area: Responsive Two-Column Layout for Desktop / iPad / Landscape */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-2.5 sm:gap-3 md:gap-3.5 items-stretch">
         {/* Left Column (5 cols): Equipment Question Card */}
-        <div className="md:col-span-5 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-3.5 md:p-4 shadow-2xs border border-stone-200 flex flex-col justify-between h-full space-y-2 sm:space-y-2.5">
-          <div className="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:pb-2 shrink-0">
-            <div className="text-[11px] sm:text-xs font-semibold text-[#800020] uppercase tracking-wider">
+        <div className="md:col-span-5 bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 md:p-4.5 shadow-2xs border border-stone-200 flex flex-col justify-between h-full space-y-2.5 sm:space-y-3">
+          <div className="flex items-center justify-between border-b border-stone-100 pb-2 shrink-0">
+            <div className="text-xs font-semibold text-[#800020] uppercase tracking-wider">
               อุปกรณ์อุตสาหกรรม #{currentQuestion.equipment.id}
             </div>
-            <span className="text-[11px] sm:text-xs px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 font-medium truncate max-w-[150px]">
+            <span className="text-xs px-2.5 py-0.5 rounded-md bg-stone-100 text-stone-600 font-medium truncate max-w-[150px]">
               {currentQuestion.equipment.category}
             </span>
           </div>
 
-          {/* Realistic 3D Visual Render */}
-          <div className="flex-1 min-h-[140px] sm:min-h-[165px] md:min-h-[185px] flex items-center justify-center">
+          {/* Realistic Visual Render - Taller & clearer */}
+          <div className="flex-1 min-h-[180px] sm:min-h-[220px] md:min-h-[250px] flex items-center justify-center">
             <EquipmentVisual 
               id={currentQuestion.equipment.id} 
               name={currentQuestion.equipment.equipmentName} 
-              className="w-full h-full min-h-[140px] sm:min-h-[165px] md:min-h-[185px]"
+              className="w-full h-full min-h-[180px] sm:min-h-[220px] md:min-h-[250px]"
             />
           </div>
 
@@ -331,21 +331,21 @@ export const GameScreen: React.FC<GameScreenProps> = ({
             <h2 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight leading-snug">
               {currentQuestion.equipment.equipmentName}
             </h2>
-            <p className="text-[11px] sm:text-xs text-stone-500 mt-0.5">
+            <p className="text-xs text-stone-500 mt-0.5">
               หมวด: <span className="font-semibold text-stone-700">{currentQuestion.equipment.category}</span>
             </p>
           </div>
 
-          {/* Requirement 5: ตัดคำว่า โปรดพิจารณา ให้เขียนว่า เลือก .... */}
-          <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-stone-50 border border-stone-200 text-[11px] sm:text-xs text-stone-600 leading-snug shrink-0">
-            <span className="font-semibold text-stone-800">คำถาม:</span> เลือกการประยุกต์ใช้งาน (Industrial Application) ที่สอดคล้องกับอุปกรณ์ชิ้นนี้อย่างถูกต้องที่สุด
+          {/* Question Prompt Callout */}
+          <div className="p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-stone-50 border border-stone-200 text-xs sm:text-sm text-stone-700 leading-relaxed shrink-0">
+            <span className="font-semibold text-stone-900">คำถาม:</span> เลือกการประยุกต์ใช้งาน (Industrial Application) ที่สอดคล้องกับอุปกรณ์ชิ้นนี้อย่างถูกต้องที่สุด
           </div>
         </div>
 
         {/* Right Column (7 cols): Four Answer Cards (2x2 Grid) matching height */}
         <div className="md:col-span-7 flex flex-col justify-between h-full space-y-2 sm:space-y-2.5">
           {/* 4 Application Cards in 2x2 Grid - equal height */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-2 sm:gap-2.5 flex-1 h-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-2.5 sm:gap-3 flex-1 h-full">
             {currentQuestion.choices.map((choice) => {
               const isEvaluated = stepState === 'evaluated';
               const isThisCorrect = choice.isCorrect;
@@ -371,34 +371,38 @@ export const GameScreen: React.FC<GameScreenProps> = ({
                       handleSelectCard(choice.code);
                     }
                   }}
-                  className={`relative p-2.5 sm:p-3 rounded-xl border transition-all flex flex-col justify-between h-full select-none ${cardStyle}`}
+                  className={`relative p-3 sm:p-3.5 rounded-xl border transition-all flex flex-col justify-between h-full select-none ${cardStyle}`}
                 >
-                  {/* Top: Short Title ONLY (No A,B... badge) */}
-                  <div className="shrink-0 mb-0.5 sm:mb-1">
-                    <h3 className="text-xs sm:text-sm font-bold text-stone-900 line-clamp-1">
+                  {/* Top: Title */}
+                  <div className="shrink-0 mb-1">
+                    <h3 className="text-sm sm:text-base font-bold text-stone-900 line-clamp-1">
                       {choice.title}
                     </h3>
                   </div>
 
-                  {/* Visual Application Diagram */}
-                  <div className="flex-1 min-h-[48px] sm:min-h-[58px] md:min-h-[68px] my-0.5 sm:my-1 flex items-center justify-center">
-                    <ApplicationVisual code={choice.code} title={choice.title} className="w-full h-full max-h-[95px] sm:max-h-[105px]" />
+                  {/* Visual Application Diagram - Taller height */}
+                  <div className="flex-1 min-h-[95px] sm:min-h-[120px] md:min-h-[140px] my-1 sm:my-1.5 flex items-center justify-center">
+                    <ApplicationVisual 
+                      code={choice.code} 
+                      title={choice.title} 
+                      className="w-full h-full min-h-[95px] sm:min-h-[120px] md:min-h-[140px]" 
+                    />
                   </div>
 
-                  {/* Thai Application Description */}
-                  <div className="shrink-0 mt-0.5 sm:mt-1 text-[11px] sm:text-xs text-stone-600 leading-snug min-h-[2.35rem] line-clamp-2 sm:line-clamp-3">
+                  {/* Thai Application Description - Larger font size */}
+                  <div className="shrink-0 mt-1 sm:mt-1.5 text-xs sm:text-sm text-stone-700 font-medium leading-relaxed min-h-[2.8rem] line-clamp-3">
                     {choice.description}
                   </div>
 
                   {/* Status Indicator during brief auto-advance feedback */}
                   {isEvaluated && isThisCorrect && (
-                    <div className="mt-1 pt-0.5 border-t border-emerald-200 flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[#15803D] shrink-0">
+                    <div className="mt-1.5 pt-1 border-t border-emerald-200 flex items-center gap-1.5 text-xs font-bold text-[#15803D] shrink-0">
                       <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                       <span>คำตอบที่ถูกต้อง</span>
                     </div>
                   )}
                   {isEvaluated && isUserChoice && !isThisCorrect && (
-                    <div className="mt-1 pt-0.5 border-t border-red-200 flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[#DC2626] shrink-0">
+                    <div className="mt-1.5 pt-1 border-t border-red-200 flex items-center gap-1.5 text-xs font-bold text-[#DC2626] shrink-0">
                       <XCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>คำตอบที่คุณเลือก</span>
                     </div>
@@ -458,13 +462,13 @@ export const GameScreen: React.FC<GameScreenProps> = ({
 
             {/* Selected Answer Summary Card */}
             <div className="p-3.5 rounded-xl bg-rose-50/60 border border-rose-200 text-left space-y-2">
-              <div className="text-sm font-bold text-stone-900">
+              <div className="text-sm sm:text-base font-bold text-stone-900">
                 {pendingChoice.title}
               </div>
-              <div className="h-28 w-full rounded-lg overflow-hidden border border-slate-700/60">
-                <ApplicationVisual code={pendingChoice.code} title={pendingChoice.title} className="h-full" />
+              <div className="h-32 sm:h-36 w-full rounded-lg overflow-hidden border border-slate-200 shadow-2xs">
+                <ApplicationVisual code={pendingChoice.code} title={pendingChoice.title} className="h-full w-full" />
               </div>
-              <p className="text-xs text-stone-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed">
                 {pendingChoice.description}
               </p>
             </div>

@@ -754,16 +754,16 @@ export const EquipmentVisual: React.FC<EquipmentVisualProps> = ({ id, name, clas
   };
 
   return (
-    <div className={`relative flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-950 p-3 sm:p-4 border border-slate-700/60 shadow-inner ${className}`}>
-      {/* Studio Lighting Spotlight from top */}
-      <div className="absolute inset-0 bg-radial from-slate-600/25 via-transparent to-transparent pointer-events-none" />
+    <div className={`relative flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b from-slate-100 via-stone-50 to-slate-200/90 p-3 sm:p-4 border border-slate-200/90 shadow-2xs ${className}`}>
+      {/* Studio Radial Backdrop */}
+      <div className="absolute inset-0 bg-radial from-white/70 via-transparent to-slate-300/35 pointer-events-none" />
       {/* Studio Floor Pedestal Shadow */}
-      <div className="absolute bottom-2 inset-x-8 h-8 bg-black/40 blur-md rounded-full pointer-events-none" />
-      {/* Precision industrial dot grid */}
+      <div className="absolute bottom-2 inset-x-8 h-6 bg-slate-400/25 blur-md rounded-full pointer-events-none" />
+      {/* Subtle precision engineering grid */}
       <div 
-        className="absolute inset-0 opacity-15 pointer-events-none"
+        className="absolute inset-0 opacity-25 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(circle, #38bdf8 0.75px, transparent 0.75px)',
+          backgroundImage: 'radial-gradient(circle, #64748b 0.75px, transparent 0.75px)',
           backgroundSize: '16px 16px',
         }}
       />

@@ -515,14 +515,14 @@ export const ApplicationVisual: React.FC<ApplicationVisualProps> = ({ code, titl
   };
 
   return (
-    <div className={`relative flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-950 p-2.5 border border-slate-700/70 shadow-inner ${className}`}>
+    <div className={`relative flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b from-slate-100 via-stone-50 to-slate-200/90 p-2.5 sm:p-3 border border-slate-200/90 shadow-2xs ${className}`}>
       {/* Studio Radial Backdrop */}
-      <div className="absolute inset-0 bg-radial from-slate-700/25 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-radial from-white/70 via-transparent to-slate-300/35 pointer-events-none" />
       {/* Subtle engineering coordinate grid */}
       <div 
-        className="absolute inset-0 opacity-15 pointer-events-none"
+        className="absolute inset-0 opacity-25 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(circle, #38bdf8 0.75px, transparent 0.75px)',
+          backgroundImage: 'radial-gradient(circle, #64748b 0.75px, transparent 0.75px)',
           backgroundSize: '14px 14px',
         }}
       />
