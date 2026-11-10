@@ -307,8 +307,8 @@ export const GameScreen: React.FC<GameScreenProps> = ({
       {/* 6.2 Main Game Area: Responsive Two-Column Layout for Desktop / iPad / Landscape */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-2.5 sm:gap-3 md:gap-3.5 items-stretch">
         {/* Left Column (5 cols): Equipment Question Card */}
-        <div className="md:col-span-5 bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 md:p-4.5 shadow-2xs border border-stone-200 flex flex-col justify-between h-full space-y-2.5 sm:space-y-3">
-          <div className="flex items-center justify-between border-b border-stone-100 pb-2 shrink-0">
+        <div className="md:col-span-5 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-3.5 md:p-4 shadow-2xs border border-stone-200 flex flex-col justify-between h-full space-y-2 sm:space-y-2.5 min-h-0">
+          <div className="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:pb-2 shrink-0">
             <div className="text-xs font-semibold text-[#800020] uppercase tracking-wider">
               อุปกรณ์อุตสาหกรรม #{currentQuestion.equipment.id}
             </div>
@@ -317,12 +317,12 @@ export const GameScreen: React.FC<GameScreenProps> = ({
             </span>
           </div>
 
-          {/* Realistic Visual Render - Taller & clearer */}
-          <div className="flex-1 min-h-[180px] sm:min-h-[220px] md:min-h-[250px] flex items-center justify-center">
+          {/* Realistic Visual Render - Optimized for 11" iPad viewport */}
+          <div className="flex-1 min-h-[160px] sm:min-h-[190px] md:min-h-[200px] lg:min-h-[230px] flex items-center justify-center min-h-0">
             <EquipmentVisual 
               id={currentQuestion.equipment.id} 
               name={currentQuestion.equipment.equipmentName} 
-              className="w-full h-full min-h-[180px] sm:min-h-[220px] md:min-h-[250px]"
+              className="w-full h-full min-h-[160px] sm:min-h-[190px] md:min-h-[200px] lg:min-h-[230px]"
             />
           </div>
 
@@ -337,15 +337,15 @@ export const GameScreen: React.FC<GameScreenProps> = ({
           </div>
 
           {/* Question Prompt Callout */}
-          <div className="p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-stone-50 border border-stone-200 text-xs sm:text-sm text-stone-700 leading-relaxed shrink-0">
+          <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-stone-50 border border-stone-200 text-xs sm:text-sm text-stone-700 leading-relaxed shrink-0">
             <span className="font-semibold text-stone-900">คำถาม:</span> เลือกการประยุกต์ใช้งาน (Industrial Application) ที่สอดคล้องกับอุปกรณ์ชิ้นนี้อย่างถูกต้องที่สุด
           </div>
         </div>
 
         {/* Right Column (7 cols): Four Answer Cards (2x2 Grid) matching height */}
-        <div className="md:col-span-7 flex flex-col justify-between h-full space-y-2 sm:space-y-2.5">
+        <div className="md:col-span-7 flex flex-col justify-between h-full space-y-2 sm:space-y-2.5 min-h-0">
           {/* 4 Application Cards in 2x2 Grid - equal height */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-2.5 sm:gap-3 flex-1 h-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-2 sm:gap-2.5 md:gap-3 flex-1 h-full min-h-0">
             {currentQuestion.choices.map((choice) => {
               const isEvaluated = stepState === 'evaluated';
               const isThisCorrect = choice.isCorrect;
@@ -371,38 +371,38 @@ export const GameScreen: React.FC<GameScreenProps> = ({
                       handleSelectCard(choice.code);
                     }
                   }}
-                  className={`relative p-3 sm:p-3.5 rounded-xl border transition-all flex flex-col justify-between h-full select-none ${cardStyle}`}
+                  className={`relative p-2.5 sm:p-3 md:p-3.5 rounded-xl border transition-all flex flex-col justify-between h-full select-none min-h-0 ${cardStyle}`}
                 >
                   {/* Top: Title */}
-                  <div className="shrink-0 mb-1">
+                  <div className="shrink-0 mb-0.5 sm:mb-1">
                     <h3 className="text-sm sm:text-base font-bold text-stone-900 line-clamp-1">
                       {choice.title}
                     </h3>
                   </div>
 
-                  {/* Visual Application Diagram - Taller height */}
-                  <div className="flex-1 min-h-[95px] sm:min-h-[120px] md:min-h-[140px] my-1 sm:my-1.5 flex items-center justify-center">
+                  {/* Visual Application Diagram - Clear & proportional for iPad 11" */}
+                  <div className="flex-1 min-h-[85px] sm:min-h-[105px] md:min-h-[115px] lg:min-h-[130px] my-0.5 sm:my-1 flex items-center justify-center min-h-0">
                     <ApplicationVisual 
                       code={choice.code} 
                       title={choice.title} 
-                      className="w-full h-full min-h-[95px] sm:min-h-[120px] md:min-h-[140px]" 
+                      className="w-full h-full min-h-[85px] sm:min-h-[105px] md:min-h-[115px] lg:min-h-[130px]" 
                     />
                   </div>
 
-                  {/* Thai Application Description - Larger font size */}
-                  <div className="shrink-0 mt-1 sm:mt-1.5 text-xs sm:text-sm text-stone-700 font-medium leading-relaxed min-h-[2.8rem] line-clamp-3">
+                  {/* Thai Application Description - Large readable font */}
+                  <div className="shrink-0 mt-0.5 sm:mt-1 text-xs sm:text-sm text-stone-700 font-medium leading-relaxed min-h-[2.6rem] line-clamp-3">
                     {choice.description}
                   </div>
 
                   {/* Status Indicator during brief auto-advance feedback */}
                   {isEvaluated && isThisCorrect && (
-                    <div className="mt-1.5 pt-1 border-t border-emerald-200 flex items-center gap-1.5 text-xs font-bold text-[#15803D] shrink-0">
+                    <div className="mt-1 pt-0.5 border-t border-emerald-200 flex items-center gap-1.5 text-xs font-bold text-[#15803D] shrink-0">
                       <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                       <span>คำตอบที่ถูกต้อง</span>
                     </div>
                   )}
                   {isEvaluated && isUserChoice && !isThisCorrect && (
-                    <div className="mt-1.5 pt-1 border-t border-red-200 flex items-center gap-1.5 text-xs font-bold text-[#DC2626] shrink-0">
+                    <div className="mt-1 pt-0.5 border-t border-red-200 flex items-center gap-1.5 text-xs font-bold text-[#DC2626] shrink-0">
                       <XCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>คำตอบที่คุณเลือก</span>
                     </div>
